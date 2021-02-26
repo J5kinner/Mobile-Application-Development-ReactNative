@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "p2",
-    "slug": "p2",
+    "name": "Week 1 Workshop",
+    "slug": "week-1-workshop",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -27,6 +27,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "Week 1 work on comp3130",
+    "githubUrl": "https://github.com/J5kinner/Mobile-Application-Development"
   }
 }
