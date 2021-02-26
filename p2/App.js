@@ -11,8 +11,8 @@ import {
   TouchableHighlight,
   Alert,
   Pressable,
-  Platform, 
-  StatusBar
+  Platform,
+  StatusBar,
 } from "react-native";
 
 export default function App() {
@@ -21,11 +21,11 @@ export default function App() {
   const secretButton = () => setCount((prevCount) => prevCount + 1);
   const trickButton = () => setCount((prevCount) => prevCount - 1);
   const handleAlert = () => alert("Doge Coins Dangerously Low!");
-  const alertAlertHandler = () => Alert.alert("You Booped Doge, ",  "Doge?", 
-  [
-    {text:"Yes",  onPress: () => alert('Wow much thank')},
-    {text:"No", onPress: () => alert('sad face.')}
-  ]);
+  const alertAlertHandler = () =>
+    Alert.alert("You Booped Doge, ", "Doge?", [
+      { text: "Yes", onPress: () => alert("Wow much thank") },
+      { text: "No", onPress: () => alert("sad face.") },
+    ]);
 
   displayAlert = () => {
     if (count < 0) {
@@ -34,7 +34,6 @@ export default function App() {
   };
 
   return (
-
     <SafeAreaView style={styles.container}>
       <View style={styles.view1} />
       <TouchableWithoutFeedback onPress={alertAlertHandler}>
@@ -53,21 +52,21 @@ export default function App() {
       <View style={styles.view3} /> */}
       <Pressable onPress={displayAlert}>
         <Text style={styles.text2}>Doge Coins Acquired: {count}</Text>
-        </Pressable>
+      </Pressable>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: Platform.OS === "android" ? StatusBar.currentHeight: 0, 
+    marginTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
     backgroundColor: "#3b5998",
     textAlign: "center",
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
   },
- 
+
   text: {
     color: "#fff",
     fontSize: 24,
