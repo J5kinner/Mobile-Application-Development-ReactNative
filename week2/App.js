@@ -1,29 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { View } from 'react-native';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.text}>NETFLIX</Text>
 
-      <StatusBar style="auto" />
+    return (
+      // Try setting `flexDirection` to `column`.
+      <View style={{flex: 1, flexDirection: 'row'}}>
+        <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
+        <View style={{width: 50, height: 50, backgroundColor: 'skyblue'}} />
+        <View style={{width: 50, height: 50, backgroundColor: 'steelblue'}} />
+      </View>,
+      <View style={{flex: 1, flexDirection: 'column'}}>
+      <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
+      <View style={{width: 50, height: 50, backgroundColor: 'skyblue'}} />
+      <View style={{width: 50, height: 50, backgroundColor: 'steelblue'}} />
     </View>
-  );
-}
+    );
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#000',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  text: {
-    color: 'red',
-    fontStyle: 'italic',
-    fontSize: 45,
-    fontWeight: 'bold',
-
-  },
-});

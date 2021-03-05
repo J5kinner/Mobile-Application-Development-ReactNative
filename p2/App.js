@@ -21,15 +21,16 @@ export default function App() {
   const secretButton = () => setCount((prevCount) => prevCount + 1);
   const trickButton = () => setCount((prevCount) => prevCount - 1);
   const handleAlert = () => alert("Doge Coins Dangerously Low!");
+
   const alertAlertHandler = () =>
     Alert.alert("You Booped Doge, ", "Doge?", [
       { text: "Yes", onPress: () => alert("Wow much thank") },
       { text: "No", onPress: () => alert("sad face.") },
     ]);
 
-  displayAlert = () => {
+  displayAlert = (handleAlert) => {
     if (count < 0) {
-      Alert.handleAlert;
+      Alert.alert(handleAlert);
     }
   };
 
@@ -38,7 +39,7 @@ export default function App() {
       <View style={styles.view1} />
       <TouchableWithoutFeedback onPress={alertAlertHandler}>
         <Image
-          blurRadius={0}
+          blurRadius={0.5}
           source={{ uri: "https://i.redd.it/pbznfp8l24f61.jpg" }}
           style={styles.banner}
         />
@@ -47,6 +48,7 @@ export default function App() {
       <TouchableOpacity onPress={secretButton}>
         <Image source={require("./assets/image.jpeg")} style={styles.image} />
       </TouchableOpacity>
+
       <Button onPress={trickButton} title="Claim Some Doge?" />
       {/* <View style={styles.view2} />
       <View style={styles.view3} /> */}
