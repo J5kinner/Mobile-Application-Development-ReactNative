@@ -1,7 +1,8 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { Text, StyleSheet, View } from 'react-native';
 
 import AppColors from '/home/jonah/Desktop/COMP3130/Mobile-Applications-Development/week2/config/AppColors.js';
+import AppText from '/home/jonah/Desktop/COMP3130/Mobile-Applications-Development/week2/components/AppText.js';
 
 export default function App() {
 
@@ -16,6 +17,7 @@ export default function App() {
        <View style={{width: 50, height: 50, backgroundColor: AppColors.black}} />
        <View style={{width: 50, height: 50, backgroundColor: AppColors.primaryColor}} />
        <View style={{width: 50, height: 50, backgroundColor: AppColors.secondColor}} />
+       <AppText> Hello There!</AppText>
     </View>
     );
 };
