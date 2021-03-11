@@ -5,13 +5,22 @@ import AppColors from '/home/jonah/Desktop/COMP3130/Mobile-Applications-Developm
 import AppText from '/home/jonah/Desktop/COMP3130/Mobile-Applications-Development/week2/components/AppText.js';
 import AppButton from './components/AppButton';
 
+import {MaterialCommunityIcons} from '@expo/vector-icons';
+
+
 export default function App() {
 
     return (
       // Try setting `flexDirection` to `column`.
       <View style={styles.container}>
-       <AppText> Hello There!</AppText>
+        <MaterialCommunityIcons
+          name="chess-knight"
+          size = {70}
+          color = {AppColors.red}
+        />
+       <AppText> Welcome to chess.com!</AppText>
        <AppButton title="click here"></AppButton>
+
 
     </View>
     );
