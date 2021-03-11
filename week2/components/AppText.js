@@ -10,7 +10,7 @@ function AppText({children}) {
 
 const styles = StyleSheet.create({
     text:{
-        fontSize:20,
+        fontSize:100,
         fontFamily: Platform.OS === 'android' ? "monospace" : "Cochin",
     }
 })
