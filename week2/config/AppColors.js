@@ -4,5 +4,6 @@ export  default {
     secondColor: '#3e6c41',
     red: 'red',
     blue: '#008487',
-    green: '#36c576'
+    green: '#36c576',
+    white: '#fff'
 }
