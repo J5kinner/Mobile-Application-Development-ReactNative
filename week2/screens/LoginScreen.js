@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 import { View, StyleSheet, TextInput } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -8,7 +8,13 @@ import AppColors from "../config/AppColors.js";
 import AppScreen from "../components/AppScreen.js";
 import AppButton from "../components/AppButton";
 
+
+
 function LoginScreen(props) {
+
+const [email, setEmail] = useState();
+const [password, setPassword] = useState();
+
   return (
     <AppScreen style={styles.container}>
       <View style={styles.welcomeContainer}>
@@ -23,22 +29,25 @@ function LoginScreen(props) {
           icon="email"
           placeholder="Email Address"
           autoComplete="off"
-          autoCapitalize="off"
+          autoCapitalize="none"
           autoCorrect={false}
           keyboardType="email-address"
           textContentType="emailAddress"
+          onChangeText={inputEmail => setEmail(inputEmail)}
         />
         <AppTextInput
           placeholder="Password"
           icon="lock"
-          autoCapitalize="off"
+          autoCapitalize="none"
           autoComplete="off"
           autoCorrect={false}
           secureTextEntry
           textContentType="password"
+          onChangeText={inputPassword => setPassword(inputPassword)}
+
         />
       </View>
-      <AppButton title="Login"/>
+      <AppButton title="Login" onPress={() => console.log(email, password)} />
     </AppScreen>
   );
 }
