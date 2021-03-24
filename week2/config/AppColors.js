@@ -5,5 +5,8 @@ export  default {
     red: 'red',
     blue: '#008487',
     green: '#36c576',
-    white: '#fff'
+    white: '#fff',
+    background: '#F2F2F2',
+    maroon: '#862633',
+    inputTextBackground: '#e3e2e1'
 }
