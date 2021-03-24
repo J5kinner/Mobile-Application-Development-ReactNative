@@ -6,7 +6,7 @@ import LoginScreen from './screens/LoginScreen.js';
 
 export default function App() {
     return (
-        <LoginScreen/>
+        <RegisterScreen/>
     );
 }
 
