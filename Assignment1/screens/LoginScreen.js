@@ -3,11 +3,21 @@ import React from "react";
 import { View, StyleSheet, TextInput } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Formik } from "formik";
+import * as Yup from 'yup';
+
 
 import AppTextInput from "../components/AppTextInput";
-import AppColors from "../config/AppColors.js";
-import AppScreen from "../components/AppScreen.js";
+import AppColors from "../config/AppColors";
+import AppScreen from "../components/AppScreen";
 import AppButton from "../components/AppButton";
+import AppText from "../components/AppText";
+
+const schema = Yup.object().shape(
+  {
+    email: Yup.string().required().email().label("Email"),
+    password: Yup.string().required().min(4).max(8).label("Password"),
+  }
+);
 
 function LoginScreen(props) {
   return (
@@ -22,8 +32,9 @@ function LoginScreen(props) {
       <Formik
         initialValues={{ email: "", password: "" }}
         onSubmit={values => console.log(values)}
+        validationSchema={schema}
       >
-        {({ handleChange, handleSubmit }) => (
+        {({ handleChange, handleSubmit, errors, setFieldTouched, touched }) => (
           <>
             <View style={styles.textInputContainer}>
               <AppTextInput
@@ -34,8 +45,11 @@ function LoginScreen(props) {
                 autoCorrect={false}
                 keyboardType="email-address"
                 textContentType="emailAddress"
+                onBlur = {() => setFieldTouched("email")}
                 onChangeText={ handleChange("email")}
+
               />
+              {touched.email && <AppText style={styles.error}>{errors.email}</AppText>}
               <AppTextInput
                 placeholder="Password"
                 icon="lock"
@@ -44,8 +58,11 @@ function LoginScreen(props) {
                 autoCorrect={false}
                 secureTextEntry
                 textContentType="password"
+                onBlur = {() => setFieldTouched("password")}
                 onChangeText={handleChange("password")}
               />
+              {touched.password && <AppText style={styles.error}>{errors.password}</AppText>}
+
             </View>
             <AppButton title="Login" onPress={handleSubmit} />
           </>
@@ -57,17 +74,20 @@ function LoginScreen(props) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: AppColors.background,
     padding: 25,
   },
   welcomeContainer: {
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 43,
+    marginTop: 50,
   },
   textInputContainer: {
     marginVertical: 75,
+  },
+  error:{
+    color: "red",
+    fontSize: 17,
   },
 });
 export default LoginScreen;
