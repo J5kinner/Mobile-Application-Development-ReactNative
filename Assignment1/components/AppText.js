@@ -4,14 +4,14 @@ import { Text, StyleSheet, Platform } from 'react-native';
 
 function AppText({style, children}) {
     return (
-        <Text style={[styles.container, style]}> {children} </Text>
+        <Text style={[styles.text, style]}> {children} </Text>
     );
 }
 
 const styles = StyleSheet.create({
     text:{
-        fontSize:100,
-        fontFamily: Platform.OS === 'android' ? "monospace" : "Cochin",
+        fontSize:20,
+        fontFamily: Platform.OS === 'android' ? "monospace" : "Avenir-Roman",
 
     }
 })
