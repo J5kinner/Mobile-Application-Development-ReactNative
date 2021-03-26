@@ -1,15 +1,18 @@
 import React from 'react';
 import { View, StyleSheet, ImageBackground, Platform } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
-import { MaterialCommunityIcons} from '@expo/vector-icons'
-import AppScreen from '../components/AppScreen'
-import AppText from '../components/AppText'
+import { MaterialCommunityIcons} from '@expo/vector-icons';
+
+
+import AppScreen from '../components/AppScreen';
+import AppText from '../components/AppText';
 import AppColors from '../config/AppColors';
 import AppButton from '../components/AppButton';
 
 const blueRadiusValue = Platform.OS === "android" ? 0.7 : 5.5;
 
-function WelcomeScreen(props) {
+function WelcomeScreen({navigation}) {
     return (
         <AppScreen>
             <ImageBackground
@@ -27,8 +30,8 @@ function WelcomeScreen(props) {
 
                 </View>
                 <View style={styles.buttonContainer}>
-                    <AppButton title="Login"/>
-                    <AppButton title="Register" color="blue"/>
+                    <AppButton title="Login" onPress={() => navigation.navigate("Login")}/>
+                    <AppButton title="Register" color="blue" onPress={() => navigation.navigate("Register")}/>
 
                 </View>
                 
