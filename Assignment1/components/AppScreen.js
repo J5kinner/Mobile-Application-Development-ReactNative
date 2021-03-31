@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
         marginTop: Constants.statusBarHeight,
     },
     paddingView:{
+        flex: 1,
         padding: 10, 
     }
 })

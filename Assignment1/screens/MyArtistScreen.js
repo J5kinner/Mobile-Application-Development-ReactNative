@@ -1,11 +1,12 @@
-import React from "react";
-import { View, StyleSheet, FlatList } from "react-native";
+import React, {useState} from "react";
+import { View, StyleSheet, FlatList, TouchableOpacity } from "react-native";
+import { TouchableHighlight } from "react-native-gesture-handler";
 import AppIcon from "../components/AppIcon";
 import AppListItem from "../components/AppListItem";
 import AppScreen from "../components/AppScreen";
 import AppColors from "../config/AppColors";
 
-const artists = [
+const initialArtists = [
   {
     id: 1,
     name: "Smash Mouth",
@@ -18,12 +19,23 @@ const artists = [
   },
 ];
 
+
 function MyArtistScreen(props) {
+
+  const[refreshing, setRefreshing]  = useState(false);
+  const[artists, setArtist] = useState(initialArtists);
+
+  const handleDelete = (artist) => {
+    const newArtistList = artists.filter (item => item.id !== artist.id)
+    setArtist(newArtistList)
+  }
   return (
     <AppScreen style={styles.container}>
       <FlatList
-        data={artists}
+        data={artists}  
         keyExtractor={(artist) => artist.id.toString()}
+        refreshing ={refreshing}  
+        onRefresh = {() => setArtist(initialArtists)}
         renderItem={({ item }) => (
           <AppListItem
             title={item.name}
@@ -31,12 +43,14 @@ function MyArtistScreen(props) {
             onPress={() => console.log(item)}
             onSwipeLeft = {() => (
                 <View style={styles.deleteView}>
+                  <TouchableOpacity onPress={() => handleDelete(item)}>
                     <AppIcon
                         name="trash-can"
                         size={80}
                         iconColor={AppColors.white}
-                    
                     />
+                  </TouchableOpacity>
+                    
                 </View>)}
           />
         )}
