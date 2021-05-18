@@ -7,7 +7,7 @@ import AppCard from "./AppCard.js";
 jest.mock("react-native/Libraries/Animated/src/NativeAnimatedHelper");
 
 describe("Testing react rendering of components", () => {
-  test("renders correctly", async () => {
+  test("AppText renders correctly", async () => {
     const json = renderer.create(<AppText />).toJSON();
     expect(json).toMatchSnapshot();
   });

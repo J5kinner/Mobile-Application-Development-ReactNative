@@ -80,7 +80,7 @@ exports[`Testing react rendering of components App Cards are rendered correctly 
 </View>
 `;
 
-exports[`Testing react rendering of components renders correctly 1`] = `
+exports[`Testing react rendering of components AppText renders correctly 1`] = `
 <Text
   style={
     Array [
